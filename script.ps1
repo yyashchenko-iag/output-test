@@ -1,5 +1,6 @@
-Write-Host "Hello, World!"
-
-echo "This is stdout"
-echo "This is stderr" 1>&2
-echo "This is the console (fd 3)" 1>&3
+# Define log file
+$logFile = "extended_logs.txt"
+# Write to the console
+Write-Output "This is critical information"
+# Write extended logs to a file
+"This is an extended log" | Out-File -FilePath $logFile -Append
