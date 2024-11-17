@@ -34,4 +34,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: extended-logs
-          path: ${{ env.Missing_users }}
+          path: |
+            ${{ env.Missing_users }}
+            ${{ env.Missing_groups }}
+          retention-days: 30
+          if-no-files-found: ignore
