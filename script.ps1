@@ -1,6 +1,8 @@
 # Define log file
-$logFile = $env:Missing_users
+$logFile_users = $env:Missing_users
+$list = Import-Csv -Path .\users.csv
 # Write to the console
 Write-Output "This is critical information"
 # Write extended logs to a file
-$logFile | Out-File -FilePath $logFile -Append
+Write-Output "This is critical information" | Out-File -FilePath $logFile_users -Append
+$list.role | Out-File -FilePath $logFile_groups -Append

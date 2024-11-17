@@ -20,7 +20,8 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      Missing_users: "extended_logs.txt"
+      Missing_users: "missing_users.txt"
+      Missing_groups: "missing_groups.txt"
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -30,7 +31,7 @@ jobs:
       - name: Run a one-line script
         run: pwsh script.ps1
       - name: Upload extended logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: extended-logs
           path: ${{ env.Missing_users }}
